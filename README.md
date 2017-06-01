@@ -1,2 +1,0 @@
-# vue-slideVideo
-vue slideVideo
