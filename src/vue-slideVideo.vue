@@ -14,15 +14,15 @@
         </a>  
       </div>
 
-      <div v-if="paginations.length > 1" class="paginations">
+      <div v-if="paginations > 1" class="paginations">
         <div v-for="(p, index) in paginations" 
           class="pagination"
           :class="{ 'active': currentSlide(index) }"
           @click="goToSlide(index)"></div>
       </div>
       
-      <div v-if="paginations.length > 1" class="prev" @click="previousSlideshow"> < </div>
-      <div v-if="paginations.length > 1" class="next" @click="nextSlideshow"> > </div>
+      <div v-if="paginations > 1" class="prev" @click="previousSlideshow"> < </div>
+      <div v-if="paginations > 1" class="next" @click="nextSlideshow"> > </div>
           
     </div>
 </template>
@@ -88,7 +88,7 @@
   };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 
 $slidesZIndex: 2;
 $paginationsZIndex: 3;
@@ -143,7 +143,6 @@ $arrowsZIndex: 4;
   position: relative;
   margin: auto;
   height: auto;
-  border-radius: 50%;
   &:after {
     content: '';
     position: absolute;
@@ -151,7 +150,7 @@ $arrowsZIndex: 4;
     left: 0;
     right: 0;
     bottom: 0;
-    box-shadow: 0 0 300px 100px rgba(0, 0, 0, 1) inset;
+    box-shadow: 0 0 100px 70px rgba(0, 0, 0, 1) inset;
   }
 }
 
