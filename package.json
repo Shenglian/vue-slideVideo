@@ -1,7 +1,7 @@
 {
-  "name": "vue-slideshow",
+  "name": "vue-slideVideo",
   "version": "1.0.0",
-  "description": "slideshow of Vuejs",
+  "description": "slideVideo of Vuejs",
   "author": "Sheng",
   "private": true,
   "scripts": {
@@ -11,7 +11,7 @@
     "test": "npm run unit",
     "lint": "eslint --ext .js,.vue src test/unit/specs"
   },
-  "main": "src/vue-slideshow.vue",
+  "main": "src/vue-slideVideo.vue",
   "dependencies": {
     "vue": "^2.2.2"
   },
@@ -80,7 +80,7 @@
   },
   "keywords": [
     "vue",
-    "vue-slideshow"
+    "vue-slideVideo"
   ],
   "engines": {
     "node": ">= 4.0.0",
@@ -88,11 +88,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Shenglian/vue-slideshow.git"
+    "url": "git+https://github.com/Shenglian/vue-slideVideo.git"
   },
-  "homepage": "https://github.com/Shenglian/vue-slideshow",
+  "homepage": "https://github.com/Shenglian/vue-slideVideo",
   "bugs": {
-    "url": "https://github.com/Shenglian/vue-slideshow/issues"
+    "url": "https://github.com/Shenglian/vue-slideVideo/issues"
   },
   "browserslist": [
     "> 1%",
