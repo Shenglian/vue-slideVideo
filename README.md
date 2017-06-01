@@ -1,6 +1,6 @@
-# vue-slideshow
+# vue-slideVideo
 
-> slideshow of Vuejs
+> slideVideo of Vuejs
 
 ## Build Setup
 
@@ -23,5 +23,3 @@ npm run unit
 # run all tests
 npm test
 ```
-
-[參考資料：Make a Simple JavaScript Slideshow without jQuery](https://www.sitepoint.com/make-a-simple-javascript-slideshow-without-jquery/)
