@@ -1,5 +1,5 @@
 <template>
-    <div class="slideshow">
+    <div class="slidevideo">
       <div id="slides">
         <a class="slide" :class="{ 'active': currentSlide(index, source) }"
           target="_blank"
@@ -29,7 +29,7 @@
 
 <script>
   export default {
-    name: 'slideshow',
+    name: 'slidevideo',
     props: {
       sources: {
         type: Array,
@@ -96,7 +96,7 @@ $arrowsZIndex: 4;
 
 // if javascript is available，
 // it will replace none to block;
-.slideshow {
+.slidevideo {
   display: none;
   position: relative;
   height: auto;

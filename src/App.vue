@@ -1,19 +1,19 @@
 <template>
   <div id="app">
-    <Slideshow
+    <SlideVideo
       :sources="sources"
       :names="names">
-    </Slideshow>
+    </SlideVideo>
   </div>
 </template>
 
 <script>
-import Slideshow from './vue-slideshow';
+import SlideVideo from './vue-slideVideo';
 
 export default {
   name: 'app',
   components: {
-    Slideshow,
+    SlideVideo,
   },
   data() {
     return {
