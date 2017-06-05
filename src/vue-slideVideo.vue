@@ -54,18 +54,21 @@
       init() {
         this.$el.style.display = 'block';
         this.slides = this.$el.querySelectorAll('#slides .slide');
-        this.videos = this.$el.querySelectorAll('#slides .slide video');
 
-        // First Videos play
-        this.videos[0].play();
+        if (this.videos) {
+          this.videos = this.$el.querySelectorAll('#slides .slide video');
 
-        // add eventListeners
-        this.videos.forEach((s) => {
-          // hide control
-          s.controls = false;
-          // add end event
-          s.addEventListener('ended', this.nextSlideshow, false);
-        });
+          // First Videos play
+          this.videos[0].play();
+
+          // add eventListeners
+          this.videos.forEach((s) => {
+            // hide control
+            s.controls = false;
+            // add end event
+            s.addEventListener('ended', this.nextSlideshow, false);
+          });
+        }        
       },
 
       previousSlideshow() {
@@ -150,7 +153,7 @@ $arrowsZIndex: 4;
     left: 0;
     right: 0;
     bottom: 0;
-    box-shadow: 0 -20px 20px 20px rgba(0, 0, 0, 1) inset;
+    box-shadow: 0 0 20px 20px rgba(0, 0, 0, 1) inset;
   }
 }
 
