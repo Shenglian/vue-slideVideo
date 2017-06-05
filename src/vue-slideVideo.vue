@@ -1,30 +1,30 @@
 <template>
-    <div class="slidevideo">
-      <div id="slides">
-        <a class="slide" :class="{ 'active': currentSlide(index, source) }"
-          target="_blank"
-          v-for="(source, index) in sources" 
-          :href="source.url">
-            <h4> {{source.title}} </h4>
-            <div class="cover">
-              <video name="media" controls playsinline muted controls>
-                <source :src="source.src" :type="source.type">
-              </video>
-            </div>
-        </a>  
-      </div>
-
-      <div v-if="paginations > 1" class="paginations">
-        <div v-for="(p, index) in paginations" 
-          class="pagination"
-          :class="{ 'active': currentSlide(index) }"
-          @click="goToSlide(index)"></div>
-      </div>
-      
-      <div v-if="paginations > 1" class="prev" @click="previousSlideshow"> < </div>
-      <div v-if="paginations > 1" class="next" @click="nextSlideshow"> > </div>
-          
+  <div class="slidevideo">
+    <div id="slides">
+      <a class="slide" :class="{ 'active': currentSlide(index, source) }"
+        target="_blank"
+        v-for="(source, index) in sources" 
+        :href="source.url">
+          <h4> {{source.video_name}} </h4>
+          <div class="cover">
+            <video ref="videoRef" name="media" controls playsinline controls>
+              <source :src="source.video_url" type="video/mp4">
+            </video>
+          </div>
+      </a>  
     </div>
+
+    <div v-if="paginations > 1" class="paginations">
+      <div v-for="(p, index) in paginations" 
+        class="pagination"
+        :class="{ 'active': currentSlide(index) }"
+        @click="goToSlide(index)"></div>
+    </div>
+    
+    <div v-if="paginations > 1" class="prev" @click="previousSlideshow"> < </div>
+    <div v-if="paginations > 1" class="next" @click="nextSlideshow"> > </div>
+        
+  </div>
 </template>
 
 <script>
@@ -39,35 +39,44 @@
     },
     data() {
       return {
+        slides: [],
         currentIndex: 0,
         paginations: [],
       };
     },
-    mounted() {
-      this.init();
-      this.paginations = this.sources.length;
+    watch: {
+      sources() {
+        this.init();
+      },
     },
+    mounted() {},
+    updated() {},
     methods: {
       currentSlide(val) {
         return val === this.currentIndex;
       },
       init() {
-        this.$el.style.display = 'block';
-        this.slides = this.$el.querySelectorAll('#slides .slide');
-        this.videos = this.$el.querySelectorAll('#slides .slide video');
 
-        if (this.videos) {
-          // First Videos play
-          this.videos[0].play();
+        this.$nextTick(function () {
+          this.$el.style.display = 'block';
+          this.slides = this.$el.querySelectorAll('#slides .slide');
+          this.paginations = this.sources.length;
+          
+          const videos = this.$el.querySelectorAll('video');
 
-          // add eventListeners
-          this.videos.forEach((s) => {
-            // hide control
-            s.controls = false;
-            // add end event
-            s.addEventListener('ended', this.nextSlideshow, false);
-          });
-        }
+          // First Videos play 
+          if (videos.length > 0) {
+            videos[0].play();
+            
+            // add eventListeners
+            videos.forEach((s) => {
+              // hide control
+              s.controls = false;
+              // add end event
+              s.addEventListener('ended', this.nextSlideshow, false);
+            });
+          }
+        });
       },
 
       previousSlideshow() {
