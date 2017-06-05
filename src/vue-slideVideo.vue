@@ -54,10 +54,9 @@
       init() {
         this.$el.style.display = 'block';
         this.slides = this.$el.querySelectorAll('#slides .slide');
+        this.videos = this.$el.querySelectorAll('#slides .slide video');
 
         if (this.videos) {
-          this.videos = this.$el.querySelectorAll('#slides .slide video');
-
           // First Videos play
           this.videos[0].play();
 
@@ -68,7 +67,7 @@
             // add end event
             s.addEventListener('ended', this.nextSlideshow, false);
           });
-        }        
+        }
       },
 
       previousSlideshow() {
