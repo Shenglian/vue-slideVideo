@@ -7,7 +7,7 @@
         :href="source.url">
           <h4> {{source.video_name}} </h4>
           <div class="cover">
-            <video ref="videoRef" name="media" controls playsinline controls>
+            <video ref="videoRef" name="media" controls muted playsinline controls>
               <source :src="source.video_url" type="video/mp4">
             </video>
           </div>
